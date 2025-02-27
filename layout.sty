@@ -1,0 +1,52 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{layout}[2025/02/26 Section formatting and page layout]
+
+% Color and title formatting packages
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{sectsty}
+\RequirePackage{titlesec}
+
+% Add vertical space before sections
+\titlespacing{\section}{0pt}{1cm}{1em}			% {left}{before-sep}{after-sep}
+\titlespacing{\subsection}{0pt}{0.5cm}{0.5em}
+
+% Part customization
+\titleformat{\part}[display]
+{\normalfont\LARGE\bfseries\color{BrickRed}}{\partname \ \thepart}
+{0pt}
+{\Huge\bfseries}[\titlerule\thispagestyle{empty}]
+
+% Chapter customization
+\titleformat{\chapter}[frame]
+{\normalfont\color{BrickRed}}
+{\filright
+	\normalsize
+	\enspace CHAPTER \thechapter\enspace}
+{8pt}
+{\huge\bfseries\color{BrickRed}\filcenter}
+
+% Section customization
+\titleformat{\section}
+{\normalfont\LARGE\bfseries\color{BrickRed}}
+{\thesection}{1em}{}
+
+% Subsection customization
+\titleformat{\subsection}
+{\normalfont\Large\bfseries\color{BrickRed}}
+{\thesubsection}{1em}{}
+
+% Subsubsection customization
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries\color{BrickRed}}
+{\thesubsubsection}{1em}{}
+
+% Headers and footers
+\usepackage{fancyhdr}
+\usepackage[hang,flushmargin]{footmisc}         % footnotes
+\pagestyle{fancy}                               % All pages have headers and footers
+
+\fancyhead{}                                    % Blank out the default header
+\fancyfoot{}                                    % Blank out the default footer
+\fancyhead[C]{\leftmark}                       % Custom header text
+\fancyfoot[C]{\thepage}							% Custom footer text
+
