@@ -1,0 +1,67 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{latexnotes}[2025/02/26 Physics-oriented template for note taking]
+
+% Load all component packages
+\RequirePackage{formulas}
+\RequirePackage{theorems}
+\RequirePackage{title}
+
+% Language support
+\RequirePackage[english]{babel}
+
+% Color and title formatting packages
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{titlesec}
+
+% Font and encoding
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{balance}
+
+% Page margins and layout
+\RequirePackage[a4paper, margin=1in]{geometry}
+\RequirePackage{parskip}
+
+% Add vertical space before sections
+\titlespacing{\section}{0pt}{1cm}{1em}			% {left}{before-sep}{after-sep}
+\titlespacing{\subsection}{0pt}{0.5cm}{0.5em}
+
+% Additional useful packages
+\RequirePackage{amsmath}   % Advanced math typesetting
+\RequirePackage{amssymb}   % Additional math symbols
+\RequirePackage{graphicx}  % For including images
+
+% Customize section formatting
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{BrickRed}}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries\color{BrickRed}}
+{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries\color{BrickRed}}
+{\thesubsubsection}{1em}{}
+
+% Customize links
+\RequirePackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,
+	urlcolor=black
+}
+
+% Images
+\RequirePackage{graphicx}
+\graphicspath{{img/}}
+
+% Spacing for equations
+\setlength{\abovedisplayskip}{6pt}
+\setlength{\belowdisplayskip}{6pt}
+
+\endinput
