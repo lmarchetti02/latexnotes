@@ -1,0 +1,88 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{theorems}[2025/02/26 Definitions, theorems and proofs]
+
+\RequirePackage{ntheorem}
+\RequirePackage[framemethod=TikZ]{mdframed}
+
+% Box for definitions 
+\newmdenv[
+	%topline=false,
+	%bottomline=false,
+	%rightline = false,
+	linewidth = 2px,
+	linecolor= NavyBlue,
+	skipabove=\baselineskip,
+	skipbelow=\baselineskip,
+]{defbox}
+
+% Box for theorems
+\newmdenv[
+	linewidth = 1px,
+	linecolor= Black,
+	rightmargin=10,
+	leftmargin=10,
+	linecolor=Goldenrod,
+	skipabove=\baselineskip,
+	skipbelow=\baselineskip,
+	backgroundcolor=Goldenrod!40,
+	roundcorner=2,
+]{thbox}
+
+% Box for corollaries 
+\newmdenv[
+	linewidth = 1px,
+	linecolor= Black,
+	rightmargin=10,
+	leftmargin=10,
+	linecolor=Magenta,
+	skipabove=\baselineskip,
+	skipbelow=\baselineskip,
+	backgroundcolor=Magenta!20,
+	roundcorner=2,
+]{corbox}
+
+% Box for axioms 
+\newmdenv[
+	linewidth = 1px,
+	linecolor= Black,
+	rightmargin=10,
+	leftmargin=10,
+	linecolor=ForestGreen,
+	skipabove=\baselineskip,
+	skipbelow=\baselineskip,
+	backgroundcolor=ForestGreen!20,
+	roundcorner=2,
+]{axbox}
+
+%definitions
+\theoremstyle{plain}
+\theoremindent0cm
+\theoremheaderfont{\normalfont\bfseries\color{NavyBlue}}
+\theorembodyfont{\slshape}
+\theoremseparator{}
+\newtheorem{definition}{Definition}[chapter]
+
+%notes
+\theoremstyle{plain}
+\theoremindent0cm
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\newtheorem{note}{Note}[chapter]
+
+%proofs
+\theoremstyle{plain}
+\theoremindent0cm
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape}
+\theoremseparator{:}
+\newtheorem*{proof}{\underline{Proof}}
+
+%examples
+\theoremstyle{break}
+\theoremindent0cm
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont\color{Blue}}
+\newtheorem{example}{Example}[chapter]
+
+\newcommand{\defi}[1]{\begin{defbox}\begin{definition}{#1}\end{definition}\end{defbox}}

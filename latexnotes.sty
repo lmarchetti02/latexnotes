@@ -5,10 +5,10 @@
 \RequirePackage[english]{babel}
 
 % Font and encoding
-\usepackage[sc]{mathpazo}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{microtype}
+\RequirePackage[sc]{mathpazo}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{microtype}
 \linespread{1.05}
 
 % Page margins and layout
@@ -33,6 +33,22 @@
 % Images
 \RequirePackage{graphicx}
 \graphicspath{{img/}}
+\RequirePackage[font=normalsize,labelfont=bf]{caption}
+\RequirePackage{subcaption}
+\RequirePackage{float}
+\RequirePackage{wrapfig}
+
+% TikZ and PGF Plots
+\RequirePackage{tikz, tikz-3dplot, pgfplots}
+\usetikzlibrary{intersections, fadings, decorations.pathreplacing, svg.path, arrows.meta}
+\pgfplotsset{width=10cm,compat=newest}
+\usepgfplotslibrary{fillbetween}
+
+% Tables
+\RequirePackage{tabls}
+
+% Lists
+\RequirePackage{enumitem}
 
 % Spacing for equations
 \setlength{\abovedisplayskip}{6pt}
