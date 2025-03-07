@@ -1,10 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{layout}[2025/02/26 Section formatting and page layout]
 
-% Color and title formatting packages
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{sectsty}
 \RequirePackage{titlesec}
+\RequirePackage{tocloft}
 
 % Add vertical space before sections
 \titlespacing{\section}{0pt}{1cm}{1em}			% {left}{before-sep}{after-sep}
@@ -47,6 +47,8 @@
 
 \fancyhead{}                                    % Blank out the default header
 \fancyfoot{}                                    % Blank out the default footer
-\fancyhead[C]{\leftmark}                       % Custom header text
+\fancyhead[C]{\leftmark}						% Custom header text
 \fancyfoot[C]{\thepage}							% Custom footer text
 
+% Table of contents
+\renewcommand{\cfttoctitlefont}{\Huge\bfseries\color{BrickRed}}
