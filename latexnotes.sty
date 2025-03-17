@@ -5,11 +5,12 @@
 \RequirePackage[english]{babel}
 
 % Font and encoding
-\RequirePackage[sc]{mathpazo}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{microtype}
 \linespread{1.05}
+\usepackage[sc]{mathpazo} % or option osf
+\usepackage{newpxmath}
 
 % Page margins and layout
 \RequirePackage[a4paper, margin=1in]{geometry}
@@ -33,7 +34,7 @@
 % Images
 \RequirePackage{graphicx}
 \graphicspath{{img/}}
-\RequirePackage[format=hang,textfont={normalsize,sl},labelfont=bf]{caption}
+\RequirePackage[textfont={normalsize,sl},labelfont=bf]{caption}
 \RequirePackage{subcaption}
 \RequirePackage{float}
 \RequirePackage{wrapfig}
