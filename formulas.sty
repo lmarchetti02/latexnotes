@@ -4,17 +4,16 @@
 % Math support
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
-\RequirePackage{amssymb}
 \RequirePackage{mathtools}
 \RequirePackage[mathscr]{euscript}
 \RequirePackage[makeroom]{cancel}
 \RequirePackage{physics}
-\RequirePackage[per-mode=symbol,separate-uncertainty=true]{siunitx}
+\RequirePackage{xparse}
 
-% --------------------------------------------------------------------------------
+% Equation numbering
+\numberwithin{equation}{section}
+
 % Fancy upright integrals
-% --------------------------------------------------------------------------------
-
 \makeatletter
 \def\upintkern@{\mkern-7mu\mathchoice{\mkern-3.5mu}{}{}{}}
 \def\upintdots@{\mathchoice{\mkern-4mu\@cdots\mkern-4mu}%
@@ -66,7 +65,146 @@
 \newcommand{\upoint}{\DOTSI\upointop\ilimits@}
 \makeatother
 
-% --------------------------------------------------------------------------------
+%QED
+\newcommand{\qed}{\hfill$ \square $}
 
-% Equation numbering
-\numberwithin{equation}{section}
+% Space below floats
+\newcommand{\spazio}{\leavevmode}
+
+% Display style
+\newcommand{\ds}{\displaystyle}
+
+% Complex numbers
+\renewcommand{\Im}{\normalfont\text{Im}}
+\renewcommand{\Re}{\normalfont\text{Re}}
+
+% Bracing
+\newcommand{\pt}[1]{\pqty{{#1}}}	% ()
+\newcommand{\pq}[1]{\bqty{{#1}}}	% []
+\newcommand{\pg}[1]{\Bqty{{#1}}}	% {}
+
+% Dot product symbol
+\newcommand{\p}{\cdot}
+
+% Scientific notation
+\newcommand{\sci}[1]{\times10^{#1}}
+
+% Vectors
+\newcommand{\vc}[1]{\vb{{#1}}}
+\newcommand{\vcs}[1]{\vb*{{#1}}}
+\NewDocumentCommand{\dpr}{s m m}{%
+	\IfBooleanTF{#1}
+	{\vb*{#2}\p\vb*{#3}}
+	{\vb{#2}\p\vb{#3}}
+}
+\NewDocumentCommand{\dprs}{s m m}{%
+	\IfBooleanTF{#1}
+	{\vb{#2}\p\vb*{#3}}
+	{\vb*{#2}\p\vb{#3}}
+}
+\NewDocumentCommand{\cpr}{s m m}{%
+	\IfBooleanTF{#1}
+	{\vb*{#2}\times\vb*{#3}}
+	{\vb{#2}\times\vb{#3}}
+}
+\NewDocumentCommand{\cprs}{s m m}{%
+	\IfBooleanTF{#1}
+	{\vb{#2}\times\vb*{#3}}
+	{\vb*{#2}\times\vb{#3}}
+}
+
+% Exponentials
+\newcommand{\e}{\mathrm{e}}
+\NewDocumentCommand{\eik}{s O{r}}{%
+	\IfBooleanTF{#1}
+	{\e^{-i\dpr{k}{#2}}}
+	{\e^{i\dpr{k}{#2}}}
+}
+
+% Implications
+\newcommand{\so}{\ \Longrightarrow \ }
+\newcommand{\sos}{\ \Longleftrightarrow \ }
+
+% Sets
+\newcommand{\set}[1]{\mathbb{{#1}}}
+\NewDocumentCommand{\subs}{s m m}{%
+	\IfBooleanTF{#1}
+	{#2 \subset #3}
+	{#2 \subseteq #3}
+}
+\newcommand{\ins}[1]{\in\mathbb{{#1}}}
+\newcommand{\notins}[1]{\notin\mathbb{{#1}}}
+
+% Functions
+\NewDocumentCommand{\f}{m m O{\set{R}}}{%
+	#1 \ : \ #2\rightarrow #3
+}
+\NewDocumentCommand{\fs}{m m O{\set{R}} O{\set{R}}}{%
+	#1 \ : \ \subs*{#2}{#3}\rightarrow #4
+}
+
+% Limits
+\newcommand{\limit}[3]{\lim\limits_{{#2}\rightarrow {#3}}{#1}}
+\newcommand{\llimit}[3]{\lim\limits_{{#2}\rightarrow {#3}^-}{#1}}
+\newcommand{\rlimit}[3]{\lim\limits_{{#2}\rightarrow {#3}^+}{#1}}
+\newcommand{\appr}[2]{{#1}\rightarrow{#2}}
+
+% Sums
+\NewDocumentCommand{\s}{m m m O{\infty}}{%
+	\sum_{{#2}={#3}}^{{#4}}{#1}
+}
+
+%integrali
+\newcommand{\ing}[4]{\upint_{#2}^{#3}{#1} \dd{#4}}
+\newcommand{\iing}[7]{\upint_{#2}^{#3}\!\!\upint_{#4}^{#5}{#1} \dd{#6}\dd{#7}}
+\NewDocumentCommand{\idr}{O{r}}{\upint\dd[3]{#1}}
+\NewDocumentCommand{\idx}{O{x}}{\upint\dd[4]{#1}}
+
+% Piece-wise functions
+\newcommand{\pw}[4]{\begin{cases}
+		#1 \, , & \text{if } #3 \\
+		#2 \, , & \text{if } #4
+	\end{cases}}
+\newcommand{\pwt}[6]{\begin{cases}
+		#1 \, , & \text{if } #4 \\
+		#2 \, , & \text{if } #5 \\
+		#3 \, , & \text{if } #6
+	\end{cases}}
+
+% Greek letters
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+\newcommand{\la}{\lambda}
+\newcommand{\sg}{\sigma}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ep}{\epsilon}
+\newcommand{\ga}{\gamma}
+
+% Constants
+\newcommand{\hb}{\hbar}
+\newcommand{\kb}{k_{\text{\tiny B}}}
+
+% Names
+\newcommand{\Sch}{Schrödinger}
+
+% Operators
+\newcommand{\hp}{\hat{p}}
+\newcommand{\hH}{\hat{H}}
+\newcommand{\hpv}{\hat{\vb{p}}}
+\newcommand{\hx}{\hat{x}}
+\newcommand{\hU}{\hat{U}}
+\newcommand{\hO}{\hat{O}}
+\newcommand{\me}[1]{\left< #1 \right>}
+
+% Subscripts & superscripts
+\newcommand{\M}{{\normalfont\text{\scriptsize max}}}
+\newcommand{\m}{{\normalfont\text{\scriptsize min}}}
+\newcommand{\su}[1]{{\normalfont\text{\scriptsize #1}}}
+\newcommand{\T}{^{\mathsf{T}}}
+
+% argmin/max
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\endinput
