@@ -1,5 +1,6 @@
 # Title page
 \maketitlepage
+\makeabstract{title}{text}
 \setsubtitle{name}
 \setaccyear{year}
 \setdep{name}

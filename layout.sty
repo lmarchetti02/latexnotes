@@ -50,10 +50,25 @@
 \fancyhead[C]{\leftmark}						% Custom header text
 \fancyfoot[C]{\thepage}							% Custom footer text
 
-% Table of contents
-\renewcommand{\cfttoctitlefont}{\LARGE\bfseries\color{BrickRed}}
-\renewcommand{\cftloftitlefont}{\LARGE\bfseries\color{BrickRed}}
-\renewcommand{\cftlottitlefont}{\LARGE\bfseries\color{BrickRed}}
+% Toc, lof, lot
+\renewcommand{\cftpartafterpnum}{%
+	\par\nopagebreak%   
+	\vskip0.5ex\hrule%  
+}
+
+\renewcommand{\cfttoctitlefont}{\huge\bfseries\color{BrickRed}}
+\renewcommand{\cftloftitlefont}{\huge\bfseries\color{BrickRed}}
+\renewcommand{\cftlottitlefont}{\huge\bfseries\color{BrickRed}}
+
+% Preface/Abstract
+\newcommand{\makeabstract}[2]{
+	\thispagestyle{empty}
+	\textbf{\huge\color{BrickRed} #1}
+
+	\vspace{1cm}
+
+	\noindent #2
+}
 
 \endinput
 
