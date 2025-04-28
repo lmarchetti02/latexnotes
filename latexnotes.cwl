@@ -19,6 +19,7 @@
 \upoint
 \upoiint
 \p
+\e
 \sci{exponent}
 \so 
 \sos
