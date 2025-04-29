@@ -66,6 +66,7 @@
 \be
 \ga
 \ep
+\om
 \hb
 \kb
 \Sch
@@ -81,9 +82,12 @@
 \su{text}
 \T
 \HC
+\qed
 
 # Boxes
 \defi{text}
+\theo{text}
+\coro{text}
 
 \begin{thbox}
 \end{thbox}
