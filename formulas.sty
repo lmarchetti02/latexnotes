@@ -10,6 +10,15 @@
 \RequirePackage{physics}
 \RequirePackage{xparse}
 
+% spacing before/after equations
+\expandafter\def\expandafter\normalsize\expandafter{%
+	\normalsize%
+	\setlength\abovedisplayskip{6pt}%
+	\setlength\belowdisplayskip{0pt}%
+	\setlength\abovedisplayshortskip{0pt}%
+	\setlength\belowdisplayshortskip{0pt}%
+}
+
 % Equation numbering
 \numberwithin{equation}{section}
 
@@ -202,6 +211,7 @@
 \newcommand{\m}{{\normalfont\text{\scriptsize min}}}
 \newcommand{\su}[1]{{\normalfont\text{\scriptsize #1}}}
 \newcommand{\T}{^{\mathsf{T}}}
+\newcommand{\HC}{^{\mathsf{H}}}
 
 % argmin/max
 \DeclareMathOperator*{\argmax}{arg\,max}

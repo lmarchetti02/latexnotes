@@ -80,6 +80,7 @@
 \m
 \su{text}
 \T
+\HC
 
 # Boxes
 \defi{text}
