@@ -8,6 +8,8 @@
 \setlogo{path}
 
 # Math commands
+\ds
+
 \mathscr{text}
 \pt{expression}
 \pq{expression}
